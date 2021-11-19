@@ -120,3 +120,10 @@ https://steemdb.io
 
 ## Confirmed Transaction
 A transaction is irreversible if it is confirmed by 17 witnesses or more. 
+
+# Resources
+## Backups
+A Replay (Re-sync) takes time - current replay time is ranging from a few weeks to a few months+ depending on the servers' specs. We can shorten the time of Replay by using the backup files.
+
+You can backup the files at `data/witness_node_data_dir/blockchain/` or you can download the files at https://files.steem.fans/
+
