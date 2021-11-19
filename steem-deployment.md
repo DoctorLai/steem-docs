@@ -117,7 +117,7 @@ cd steem-docker
 - To Stop the container: `./run.sh stop`
 - To Start the container: `./run.sh start`
 - To Restart the container: `./run.sh restart`
-- To Replay: `./run.sh replay`
+- To Replay: Download the latest steem_witness.tar.lz4 from [this website](https://files.steem.fans/) and unzip or use this command 'wget -c -qO- https://files.steem.fans/data/ xxxxx.tar.lz4 | lz4 -d | tar x' to stream the block data(Streaming can be useful when the disk space is low) 
 
 #### Build from Source
 We can refer to [this guide](https://github.com/steemit/steem/blob/master/doc/exchangequickstart.md) but make sure we checkout the latest branch e.g. 0.23.x
