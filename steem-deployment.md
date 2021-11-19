@@ -123,17 +123,7 @@ cd steem-docker
 We can refer to [this guide](https://github.com/steemit/steem/blob/master/doc/exchangequickstart.md) but make sure we checkout the latest branch e.g. 0.23.x
 
 ### Replay / ReIndex
-We can start the steemd with `--replay-blockchain` parameter to replay the blockchain. For docker installation, we need to stop and start the steem container:
-
-```bash
-docker stop <steem container>
-docker rm <steem container>
-rm -rf blockchain/*
-docker pull steemit/steem
-docker run -d --name <steem container> --env TRACK_ACCOUNT=nameofaccount --env USE_PUBLIC_BLOCKLOG=1 -p 2001:2001 -p 8090:8090 -v /path/to/steemwallet:/var/steemwallet -v /path/to/blockchain:/var/lib/steemd/blockchain --restart always steemit/steem
-```
-
-or if we are using the [Docker Management Script](#docker-management-script), we can do this:
+We can do this:
 
 ```bash
 ./run.sh replay
