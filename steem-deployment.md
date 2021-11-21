@@ -123,17 +123,20 @@ cd steem-docker
 We can refer to [this guide](https://github.com/steemit/steem/blob/master/doc/exchangequickstart.md) but make sure we checkout the latest branch e.g. 0.23.x
 
 ### Replay / ReIndex
-We can do this:
+In case of database corruption when the steemd crashes, we can start a replay:
 
 ```bash
 ./run.sh replay
 ```
+
+It is recommended to obtain a backup so that the time to replay is less.
 
 ### Activate the Witness Node:
 ```
 conductor enable <Public Key in Last Step>
 ```
 You will be asked for the wallet password before the transaction is broadcasted.
+
 ### Disable the Witness Node:
 Disable the Node to avoid missing the blocks:
 ```bash
@@ -181,7 +184,7 @@ We can get the irreversible block number via `condenser_api.get_dynamic_global_p
 To be safe, we can wait 63 seconds (21 blocks) to ensure the transaction is irreversible.
 
 # Interact with Local Node
-We can interact with the local node once it is up and running which we can verify via viewing the logs e.g. `docker logs -f` seeing Blocks Synchronization messages like this:
+We can interact with the local node once it is up and running which we can verify via viewing the logs e.g. `docker logs -f` or `./run.sh logs` seeing Blocks Synchronization messages like this:
 
 ```log
 1181706ms p2p_plugin.cpp:212            handle_block         ] Got 8 transactions on block 59135809 by steem-agora -- Block Time Offset: -293 ms
@@ -201,6 +204,8 @@ We can interact with the local node once it is up and running which we can verif
 For example, if we enable the `block_api` and `webserver` plugin, we can send a request to it via:
 
 ```python
+import requests
+
 # local node
 node = "https://127.0.0.1:8089"
 # block number
