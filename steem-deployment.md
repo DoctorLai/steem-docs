@@ -226,3 +226,13 @@ print(request.json())
 A Replay (Re-sync) takes time - current replay time is ranging from a few weeks to a few months+ depending on the servers' specs. We can shorten the time of Replay by using the backup files.
 
 You can backup the files at `data/witness_node_data_dir/blockchain/` or you can obtained the regular backup files at https://files.steem.fans/ However please be noted that the account history backup is not complete.
+
+Steps for downloading the backup for witness:
+
+```bash
+# download backup
+docker run -v $(pwd)/:/download --rm leopere/axel-docker -n 5 https://files.steem.fans/data/steem_witness-20201218.tar.lz4
+
+# unzip to steem data folder
+tar xf steem_witness_20200918.tar.lz4 -I lz4 -C /root/steem-docker/data/witness_node_data_dir/
+```
